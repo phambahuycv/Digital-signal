@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+@model Digital.Models.MainModel;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="~/assets/media/logos/favicon.ico" />
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <!--end::Fonts-->
+    @*@await RenderSectionAsync("Styles", required: false)*@
+    <title>Hi</title>
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="app">
+        <div class="header-contain d-flex" style="
+             width: 90%;
+             margin: 0 auto;
+             align-items: center;">
+
+
+            <div class="card-body p-4">
+                <label class="form-label">Thiết bị truy cập</label>
+                <br />
+                <label id="ip_link" style="font-size: 20px;" class="form-label">@ViewData["iptest"]</label>
+            </div>
+            <div>
+                <a class="btn btn-success" asp-controller="Access" asp-action="Login">Đăng nhập hệ thống</a>
+            </div>
+        </div>
+        
+
+
+        <div class="d-flex" style="width:100%">
+            <div style="width:100%">
+                
+                <div id="contain-link" style="display:flex;justify-content:center;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>var hostUrl = "~/assets/";</script>
+    <!--begin::Javascript-->
+    <!--begin::Global Javascript Bundle(used by all pages)-->  
+    <script src="~/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/assets/js/scripts.bundle.js"></script>
+    <script src="~/js/toastr.init.js"></script>
+    <script src="~/js/sweetalert.init.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <script src="~/js/Main/Index.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   @* @await RenderSectionAsync("Scripts", required: false)*@    
+</body>
+</html>

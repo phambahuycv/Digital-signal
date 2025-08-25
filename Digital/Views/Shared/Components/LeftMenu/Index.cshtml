@@ -1,0 +1,161 @@
+﻿<!--begin::Aside Menu-->
+<div class="hover-scroll-overlay-y px-2 my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="{default: '#kt_aside_toolbar, #kt_aside_footer', lg: '#kt_header, #kt_aside_toolbar, #kt_aside_footer'}" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="5px">
+    <!--begin::Menu-->
+    <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+        <div class="menu-item">
+            <div class="menu-content pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Overview</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <a class="menu-link" is-active-route asp-controller="Dashboard" asp-action="Index">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor" />
+                            <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </div>
+
+        <div class="menu-item">
+            <div class="menu-content pt-8 pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Quản lý</span>
+            </div>
+        </div>
+        @if (User.IsInRole("Quản lý người dùng"))
+        {
+            
+        <!--Người dùng-->
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.4" d="M3 7.5C3 5.29086 4.79086 3.5 7 3.5H17C19.2091 3.5 21 5.29086 21 7.5V9V18C21 20.2091 19.2091 22 17 22H7C4.79086 22 3 20.2091 3 18V9V7.5Z" fill="currentColor" />
+                            <path d="M17 3.5H7C4.79086 3.5 3 5.29086 3 7.5V9H21V7.5C21 5.29086 19.2091 3.5 17 3.5Z" fill="currentColor" />
+                            <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M8 1.25C8.41421 1.25 8.75 1.58579 8.75 2V5C8.75 5.41421 8.41421 5.75 8 5.75C7.58579 5.75 7.25 5.41421 7.25 5V2C7.25 1.58579 7.58579 1.25 8 1.25ZM16 1.25C16.4142 1.25 16.75 1.58579 16.75 2V5C16.75 5.41421 16.4142 5.75 16 5.75C15.5858 5.75 15.25 5.41421 15.25 5V2C15.25 1.58579 15.5858 1.25 16 1.25Z" fill="currentColor" />
+                            <circle cx="12" cy="15" r="1" fill="currentColor" />
+                            <circle cx="16" cy="15" r="1" fill="currentColor" />
+                            <circle cx="8" cy="15" r="1" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Quản lý người dùng</span>
+                <span class="menu-arrow"></span>
+            </span>
+            <div class="menu-sub menu-sub-accordion">
+                @if (User.IsInRole("Quản lý vai trò"))
+                {
+                    <div class="menu-item">
+                        <a class="menu-link" is-active-route asp-controller="Role" asp-action="Index">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Vai trò</span>
+                        </a>
+                    </div>
+                }
+                @if (User.IsInRole("Quản lý quyền hạn"))
+                {
+
+                    <div class="menu-item">
+                        <a class="menu-link" is-active-route asp-controller="RoleObject" asp-action="Index">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Quyền hạn</span>
+                        </a>
+                    </div>
+                }
+                @if (User.IsInRole("Quản lý người dùng"))
+                {
+                    <div class="menu-item">
+                        <a class="menu-link" is-active-route asp-controller="User" asp-action="Index">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Quản lý người dùng</span>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!--End người dùng-->
+        }
+        <!--Danh sách-->
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.4" d="M3 7.5C3 5.29086 4.79086 3.5 7 3.5H17C19.2091 3.5 21 5.29086 21 7.5V9V18C21 20.2091 19.2091 22 17 22H7C4.79086 22 3 20.2091 3 18V9V7.5Z" fill="currentColor" />
+                            <path d="M17 3.5H7C4.79086 3.5 3 5.29086 3 7.5V9H21V7.5C21 5.29086 19.2091 3.5 17 3.5Z" fill="currentColor" />
+                            <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M8 1.25C8.41421 1.25 8.75 1.58579 8.75 2V5C8.75 5.41421 8.41421 5.75 8 5.75C7.58579 5.75 7.25 5.41421 7.25 5V2C7.25 1.58579 7.58579 1.25 8 1.25ZM16 1.25C16.4142 1.25 16.75 1.58579 16.75 2V5C16.75 5.41421 16.4142 5.75 16 5.75C15.5858 5.75 15.25 5.41421 15.25 5V2C15.25 1.58579 15.5858 1.25 16 1.25Z" fill="currentColor" />
+                            <circle cx="12" cy="15" r="1" fill="currentColor" />
+                            <circle cx="16" cy="15" r="1" fill="currentColor" />
+                            <circle cx="8" cy="15" r="1" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Danh sách</span>
+                <span class="menu-arrow"></span>
+            </span>
+            <div class="menu-sub menu-sub-accordion">
+
+                <div class="menu-item">
+                    <a class="menu-link" is-active-route asp-controller="Home" asp-action="Index">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Home</span>
+                    </a>
+                </div>
+                @if (User.IsInRole("Quản lý thiết bị"))
+                {
+                    <div class="menu-item">
+                        <a class="menu-link" is-active-route asp-controller="Device" asp-action="Index">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Quản lý thiết bị</span>
+                        </a>
+                    </div>
+                }
+                @if (User.IsInRole("Quản lý nội dung"))
+                {
+                    <div class="menu-item">
+                        <a class="menu-link" is-active-route asp-controller="Playlist" asp-action="Index">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Quản lý bài đăng</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" is-active-route asp-controller="Content" asp-action="Index">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Quản lý nội dung</span>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+        <!--End danh sách-->
+    </div>
+    <!--end::Menu-->
+</div>
+<!--end::Aside Menu-->

@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["ParentTitle"] = "Dashboard";
+    ViewData["Title"] = "Home";
+}
+@section Styles {
+
+}
+
+@section Scripts {
+    <script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="~/js/Home/Index.js"></script>
+}
+<div class="d-flex" style="width:100%">
+    <div style="width:100%">
+        <div class="card-body p-4 d-flex" style="justify-content: space-between;width: 100%;">
+            <div>
+                <label class="form-label">Thiết bị truy cập</label>
+                <br />
+                <label id="ip_link" class="form-label">@ViewData["iptest"]</label>
+            </div>
+            <button onclick=HandleUpdate() class="btn btn-primary me-3 ps-5" data-bs-toggle="modal" data-bs-target="#kt_modal_1">
+                <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                <span class="svg-icon svg-icon-2 m-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                        <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="currentColor" />
+                        <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="currentColor" />
+                    </svg>
+                </span>
+                <!--end::Svg Icon-->Thay đổi video
+            </button>
+
+        </div>
+        <div id="contain-link" style="display:flex;justify-content:center;">
+        </div>
+    </div>
+</div>
+
+@*begin::Modal*@
+<div class="modal fade" tabindex="-1" id="kt_modal_1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header" style="justify-content: center;">
+                <h3 class="modal-title" style="width: 100%;text-align: center;">
+                    Thay đổi nội dung hiển thị
+                </h3>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+            <div class="modal-body d-flex flex gap-2">
+                <div class="col-5">
+                    <div class="mb-10">
+                        <label class="form-label">IP_ ADDRESS</label>
+                        <select class="form-control form-control-sm" id="ip_address">
+                        </select>
+                    </div>
+                    <div class="mb-10">
+                        <label class="form-label">ID_URL</label>
+                        <select class="form-control form-control-sm" id="id_url">
+                        </select>
+                    </div>
+                    <div class="mb-10">
+                        <label class="form-label">ID_TYPE</label>
+                        <select class="form-control form-control-sm" id="id_type">
+                        </select>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="btn_modal_edit_link_url">Cập nhật</button>
+                    </div>
+                </div>
+                <div class ="col-7">
+                    <div style="display:flex;justify-content:center; font-weight: bold;"> Xem trước</div>
+                <div  id="contain-link-prev" style="display:flex;justify-content:center;">
+                    @*video ở đây*@
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@*end::Modal*@
+@*Begin::Modal*@
+<div class="modal fade" tabindex="-1" id="kt_modal_stacked_2">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Xem trước</h3>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+                <div id="contain-link-prev" style="display:flex;justify-content:center;"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+@*end::Modal*@
